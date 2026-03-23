@@ -1,15 +1,24 @@
-# Taiwan Forum Search
+# Taiwan Forum Search 🇹🇼
 
-**Search Taiwan's major online communities.** PTT, Dcard, Mobile01, 巴哈姆特.
+**Search Taiwan's online communities for local opinions, reviews, and discussions.**
 
-Find local opinions, reviews, and discussions that don't appear in general web search. Great for:
-- 🏢 Company/interview research
-- 📱 Product reviews (3C, cars, home)
-- 💼 Salary/career discussions
-- 🎮 Gaming communities
-- 📰 Real-time sentiment on news
+PTT, Dcard, Mobile01, 巴哈姆特, and more — the information that doesn't show up in regular web search.
 
 Works with Claude Code, Codex CLI, OpenClaw, and any Agent Skills-compatible tool.
+
+---
+
+## Why This Skill?
+
+Taiwan has a rich forum culture. Locals discuss everything:
+- 🏢 Company reviews & interview experiences
+- 📱 Product reviews & disaster reports
+- 💼 Salary benchmarks
+- 🍜 Restaurant recommendations
+- 🎮 Game strategies
+- 📰 Current events sentiment
+
+**This knowledge doesn't appear in regular search.** You need to know where to look and how to search.
 
 ---
 
@@ -23,80 +32,125 @@ npx skills add git@github.com:mcltyl/taiwan-forum-search.git
 
 ### Manually
 
-#### Claude Code
-
-Add the contents of this repo to a `/.claude` folder in your project.
-
-#### OpenCode
-
 ```bash
-git clone https://github.com/mcltyl/taiwan-forum-search.git ~/.opencode/skills/taiwan-forum-search
-```
-
-#### OpenClaw
-
-```bash
+# OpenClaw
 git clone https://github.com/mcltyl/taiwan-forum-search.git ~/.openclaw/skills/taiwan-forum-search
+
+# OpenCode  
+git clone https://github.com/mcltyl/taiwan-forum-search.git ~/.opencode/skills/taiwan-forum-search
+
+# Claude Code
+# Add to /.claude folder in your project
 ```
-
-## Skills
-
-| Skill | Description |
-|-------|-------------|
-| [taiwan-forum-search](skills/taiwan-forum-search) | Search Taiwan forums using Brave site: operator and direct scraping |
 
 ---
 
-## Supported Forums
+## Forums Covered
 
-| Forum | Domain | Best For |
-|-------|--------|----------|
-| **PTT** | ptt.cc | Politics, tech jobs, stock, news |
-| **Dcard** | dcard.tw | Career, relationships, campus |
-| **Mobile01** | mobile01.com | 3C reviews, cars, home |
-| **巴哈姆特** | forum.gamer.com.tw | Games, anime, ACG |
+| Forum | Demographic | Best For |
+|-------|-------------|----------|
+| **PTT** | Tech-savvy, 25-45 | Jobs, stocks, news, deep discussions |
+| **Dcard** | Students, 18-30 | Career, relationships, lifestyle |
+| **Mobile01** | Consumers, 25-50 | Product reviews, cars, home |
+| **巴哈姆特** | Gamers, 15-35 | Games, anime, ACG |
+| **BackPackers** | Travelers | Travel planning |
+| **ePrice** | Phone buyers | Phone specs, comparisons |
 
 ---
 
 ## Quick Start
 
-Use `web_search` with site operators:
+Use `web_search` with `site:` operator:
 
 ```
-# Company interview experiences
-site:ptt.cc OR site:dcard.tw "台積電" 面試
+# Company research
+site:ptt.cc "[公司名]" 面試
+site:dcard.tw "[公司名]" 薪水
 
-# Product reviews
-site:mobile01.com "iPhone 15" 開箱
+# Product research
+site:mobile01.com "[產品]" 開箱 心得
+site:mobile01.com "[產品]" 災情
 
-# Salary discussions
-site:ptt.cc Tech_Job "PM" 年薪
+# Game research
+site:forum.gamer.com.tw "[遊戲名]" 攻略
+```
 
-# Game discussions
-site:forum.gamer.com.tw "原神" 攻略
+### Narrow by Board
+
+```
+# PTT specific boards
+site:ptt.cc/bbs/Tech_Job [keyword]
+site:ptt.cc/bbs/Stock [keyword]
+site:ptt.cc/bbs/MobileComm [keyword]
+
+# Dcard specific forums
+site:dcard.tw/f/job [keyword]
+site:dcard.tw/f/food [keyword]
 ```
 
 ---
 
-## Popular PTT Boards
+## What's Inside
 
-| Board | Topic |
-|-------|-------|
-| Stock | 股票 |
-| Tech_Job | 科技業 |
-| Soft_Job | 軟體業 |
-| Salary | 薪資 |
-| studyabroad | 留學 |
-| car | 汽車 |
+This skill includes:
+
+### Search Patterns
+- Career research (interviews, salary, culture)
+- Product research (reviews, problems, comparisons)
+- Food & restaurant recommendations
+- Current events & sentiment
+- Gaming discussions
+
+### Result Interpretation
+- How to read PTT 推/噓 metrics
+- Credibility assessment framework
+- Cross-referencing strategies
+
+### Board References
+- PTT popular boards with descriptions
+- Dcard forum list
+- Mobile01 forum IDs
+- 巴哈姆特 game IDs
+
+### Workflow Templates
+- Company research before interview
+- Product purchase decision
+- Breaking news context
+- Restaurant evaluation
 
 ---
 
-## Tips
+## Credibility Tips
 
-1. **Use Traditional Chinese** (繁體中文)
-2. **Combine sources** for comprehensive research
-3. **Check dates** - forum content ages quickly
-4. **PTT jargon**: 推=agree, 噓=disagree, 爆=popular
+### Trust More
+✅ Detailed personal experience  
+✅ Photos/screenshots  
+✅ Balanced pros & cons  
+✅ High engagement  
+✅ Multiple sources agree  
+
+### Trust Less
+🚩 Vague claims  
+🚩 New account  
+🚩 Sounds like PR  
+🚩 No negatives mentioned  
+🚩 Old post (check date!)  
+
+---
+
+## Limitations
+
+| Issue | Solution |
+|-------|----------|
+| PTT 18+ boards | Use `site:` search instead of direct fetch |
+| Dcard blocked | Use `site:` search only, no direct fetch |
+| Old results | Add year to search: `[keyword] 2024` |
+
+---
+
+## Related
+
+This skill is also included in [Taiwan Skills](https://github.com/mcltyl/taiwan-guide-skills), a comprehensive Taiwan collection with 8 skills.
 
 ---
 
